@@ -1,0 +1,11 @@
+enum RideStatus {
+  BOOKED = "Booked",
+  PICKED = "Picked",
+  COMPLETED = "Completed",
+}
+
+function updateRide(status: RideStatus) {
+  console.log("Ride is now:", status);
+}
+
+updateRide(RideStatus.PICKED);

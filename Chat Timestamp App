@@ -1,0 +1,32 @@
+// Step 1: Define a tuple type for a chat message
+type ChatMessage = [string, Date];
+
+// Step 2: Create a Chat App class
+class ChatApp {
+  private messages: ChatMessage[] = [];
+
+  // Method to send message
+  sendMessage(msg: string): void {
+    const timestamp: Date = new Date(); // current timestamp
+    const chat: ChatMessage = [msg, timestamp];
+    this.messages.push(chat);
+    console.log(`📤 Message Sent: "${msg}" at ${timestamp.toLocaleTimeString()}`);
+  }
+
+  // Method to show all chat messages
+  showChat(): void {
+    console.log("\n🗨️ Chat History:");
+    this.messages.forEach(([msg, time], index) => {
+      console.log(`${index + 1}. [${time.toLocaleTimeString()}] ${msg}`);
+    });
+  }
+}
+
+// ✅ Demo
+const myChat = new ChatApp();
+
+myChat.sendMessage("Hello!");
+setTimeout(() => {
+  myChat.sendMessage("How are you?");
+  myChat.showChat();
+}, 1000);
